@@ -35,7 +35,7 @@ module.exports = (env, argv) => {
       filename: isProduction
         ? '[name].[contenhash].js'
         : 'main.js',
-      path: path.resolve(__dirname, 'build')
+      path: path.resolve(__dirname, 'public')
     },
     plugins: [
       new HtmlWebpackPlugin({ template: './src/index.html' })
