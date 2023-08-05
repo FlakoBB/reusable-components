@@ -1,0 +1,35 @@
+.default {
+  height: 2.3rem;
+  padding: 0 1rem;
+  border-radius: .4rem;
+  border: none;
+  background-color: #d6d6d6;
+  color: #3f3f3f;
+  font-size: .9rem;
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+}
+
+.default:is(:focus, :hover) {
+  background-color: #aeaeae;
+}
+
+.outline {
+  background-color: #fff;
+  border: 1px solid #3D5AFE;
+  color: #3D5AFE;
+}
+
+.outline:is(:focus, :hover) {
+  background-color: #eaefff;
+}
+
+.text {
+  background: none;
+  color: #3D5AFE;
+}
+
+.text.default:is(:focus, :hover) {
+  background-color: #eaefff;
+}
