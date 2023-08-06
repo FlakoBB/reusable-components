@@ -3,12 +3,8 @@ import styles from '../styles/buttons.module.css'
 import { useEffect, useState } from 'react'
 
 // * Button States
-// variant (default || outline || test)
-// size (sm || md || lg)
-// color (primary || secondary || danger )
-// shadow (true || false)
-// disable  (true || false)
-// icon (left || right)
+// ToDo: disable  (true || false)
+// ToDo: icon (left || right)
 
 const VARIANTS = {
   DEFAULT: 'default',
@@ -22,10 +18,17 @@ const COLORS = {
   DANGER: 'danger'
 }
 
-const Button = ({ value, variant, size, color, disableShadow, disabled, icon }) => {
+const SIZE = {
+  SMALL: 'sm',
+  MEDIUM: 'md',
+  LARGE: 'lg'
+}
+
+const Button = ({ value, variant, size, color, disableShadow, disabled, iconStart, iconEnd }) => {
   const [variantStyle, setVariantStyle] = useState(styles.default)
   const [shadow, setShadow] = useState(styles.disableShadow)
   const [colorStyle, setColorStyle] = useState(styles.default)
+  const [sizeStyle, setSizeStyle] = useState(styles.medium)
 
   const getVariant = (vars) => {
     switch (vars) {
@@ -59,6 +62,23 @@ const Button = ({ value, variant, size, color, disableShadow, disabled, icon }) 
     }
   }
 
+  const getSize = (sz) => {
+    switch (sz) {
+      case SIZE.SMALL:
+        setSizeStyle(styles.small)
+        break
+      case SIZE.MEDIUM:
+        setSizeStyle(styles.medium)
+        break
+      case SIZE.LARGE:
+        setSizeStyle(styles.large)
+        break
+      default:
+        setSizeStyle(styles.medium)
+        break
+    }
+  }
+
   useEffect(() => {
     console.log('entro al useEffect')
     getVariant(variant)
@@ -68,11 +88,13 @@ const Button = ({ value, variant, size, color, disableShadow, disabled, icon }) 
     }
 
     getColor(color)
+
+    getSize(size)
   }, [])
 
   return (
     <button
-      className={`${styles.btn} ${variantStyle} ${shadow} ${colorStyle}`}
+      className={`${styles.btn} ${variantStyle} ${shadow} ${colorStyle} ${sizeStyle}`}
     >
       {value}
     </button>
@@ -82,7 +104,12 @@ const Button = ({ value, variant, size, color, disableShadow, disabled, icon }) 
 Button.propTypes = {
   value: PropTypes.string.isRequired,
   variant: PropTypes.string,
-  color: PropTypes.string
+  color: PropTypes.string,
+  size: PropTypes.string,
+  disableShadow: PropTypes.bool,
+  iconStart: PropTypes.string,
+  iconEnd: PropTypes.string,
+  disabled: PropTypes.bool
 }
 
 export default Button

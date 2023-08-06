@@ -1,7 +1,20 @@
+:root {
+  --textColor: #3f3f3f;
+  --bgColor2: #aeaeae;
+  --bgColor1: #d6d6d6;
+  --primaryColor1: #2962FF;
+  --primaryColor2: #0039CB;
+  --primaryColor3: #eaefff;
+  --secondaryColor1: #455A64;
+  --secondaryColor2: #1C313A;
+  --secondaryColor3: #dbe2e6;
+  --dangerColor1: #D32F2F;
+  --dangerColor2: #9A0007;
+  --dangerColor3: #f0c1c1;
+}
+
 .btn {
-  max-width: 15rem;
-  min-height: 2.3rem;
-  padding: .6rem 1rem;
+  padding: 0 1rem;
   border-radius: .4rem;
   border: none;
   font-size: .9rem;
@@ -11,74 +24,85 @@
 }
 
 .default {
-  background-color: #d6d6d6;
-  color: #3f3f3f;
-  box-shadow: 0 10px 4px -6px #3f3f3f;
+  background-color: var(--bgColor1);
+  color: var(--textColor);
+  box-shadow: 0 10px 4px -6px var(--bgColor2);
 }
 
 .default:is(:focus, :hover) {
-  background-color: #aeaeae;
+  background-color: var(--bgColor2);
 }
 
 .outline {
   background-color: #fff;
-  border: 1px solid #3f3f3f;
-  color: #3f3f3f;
+  border: 1px solid var(--textColor);
+  color: var(--textColor);
   box-shadow: none;
 }
 
 .outline:is(:focus, :hover) {
-  background-color: #f0f0f0;
+  background-color: var(--bgColor1);
 }
 
 .text {
   background: none;
-  color: #3f3f3f;
+  color: var(--textColor);
   box-shadow: none;
 }
 
 .text:is(:focus, :hover) {
-  background-color: #f0f0f0;
+  background-color: var(--bgColor1);
 }
 
 .disableShadow {
   box-shadow: none;
 }
 
-.disabled {
-  color: red;
-  opacity: .8;
-  cursor: not-allowed;
+.primaryColor.default {
+  --textColor: #fff;
+  --bgColor1: var(--primaryColor1);
+  --bgColor2: var(--primaryColor2);
 }
 
 .primaryColor {
-  background-color: #3D5AFE;
-  color: #fff;
-  border-color: #3D5AFE;
-  box-shadow: 0 10px 4px -6px #3D5AFE;
+  --textColor: var(--primaryColor1);
+  --bgColor1: var(--primaryColor3);
+
 }
 
-.primaryColor:hover {
-  background-color: #293daa;
+.secondaryColor.default {
+  --textColor: #fff;
+  --bgColor1: var(--secondaryColor1);
+  --bgColor2: var(--secondaryColor2);
 }
 
-.outline.primaryColor {
-  background-color: #fff;
-  color: #3D5AFE;
-  border-color: #3D5AFE;
-  box-shadow: none;
+.secondaryColor {
+  --textColor: var(--secondaryColor1);
+  --bgColor1: var(--secondaryColor3);
 }
 
-.outline.primaryColor:hover {
-  background-color: #dfe4fc;
+.dangerColor.default {
+  --textColor: #fff;
+  --bgColor1: var(--dangerColor1);
+  --bgColor2: var(--dangerColor2);
 }
 
-.text.primaryColor {
-  background: none;
-  color: #3D5AFE;
-  box-shadow: none;
+.dangerColor {
+  --textColor: var(--dangerColor1);
+  --bgColor1: var(--dangerColor3);
 }
 
-.text.primaryColor:hover {
-  background-color: #dfe4fc;
+.small {
+  min-width: 6rem;
+  min-height: 2rem;
+}
+
+.medium {
+  min-width: 7rem;
+  min-height: 2.5rem;
+}
+
+.large {
+  min-width: 8rem;
+  min-height: 3rem;
 }
