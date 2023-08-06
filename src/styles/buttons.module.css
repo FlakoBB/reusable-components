@@ -106,3 +106,8 @@
   min-width: 8rem;
   min-height: 3rem;
 }
+
+.btn[disabled] {
+  opacity: .6;
+  cursor: not-allowed;
+}

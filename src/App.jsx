@@ -1,6 +1,10 @@
 import Button from './components/Button.jsx'
 
 const App = () => {
+  const sayHi = (name) => {
+    console.log(`Hola !!! ${name}`)
+  }
+
   return (
     <div className='column'>
       <h1>Buttons</h1>
@@ -24,7 +28,8 @@ const App = () => {
       <Button value='Hola' variant='outline' size='md' />
       <Button value='Hola' variant='outline' size='lg' color='danger' />
       <Button value='Hola' variant='default' size='md' />
-      <Button value='Hola' variant='default' size='lg' disableShadow />
+      <Button value='Hola 1' variant='default' size='lg' disableShadow onClick={() => sayHi('BTN 1')} />
+      <Button value='Hola 2' variant='default' size='lg' disableShadow disabled onClick={() => sayHi('BTN 2')} />
     </div>
   )
 }

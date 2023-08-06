@@ -24,7 +24,7 @@ const SIZE = {
   LARGE: 'lg'
 }
 
-const Button = ({ value, variant, size, color, disableShadow, disabled, iconStart, iconEnd }) => {
+const Button = ({ value, variant, size, color, disableShadow, iconStart, iconEnd, disabled, onClick }) => {
   const [variantStyle, setVariantStyle] = useState(styles.default)
   const [shadow, setShadow] = useState(styles.disableShadow)
   const [colorStyle, setColorStyle] = useState(styles.default)
@@ -95,6 +95,8 @@ const Button = ({ value, variant, size, color, disableShadow, disabled, iconStar
   return (
     <button
       className={`${styles.btn} ${variantStyle} ${shadow} ${colorStyle} ${sizeStyle}`}
+      onClick={onClick}
+      disabled={disabled}
     >
       {value}
     </button>
@@ -109,7 +111,8 @@ Button.propTypes = {
   disableShadow: PropTypes.bool,
   iconStart: PropTypes.string,
   iconEnd: PropTypes.string,
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  onClick: PropTypes.func
 }
 
 export default Button
