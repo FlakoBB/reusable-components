@@ -1,0 +1,16 @@
+.custom__btn {
+  height: 5rem;
+  width: 15rem;
+  background-color: greenyellow;
+  border-radius: 2rem;
+  color: orangered;
+  box-shadow: 10px 10px 0 red;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.custom__btn:hover {
+  transform: translate(10px, 10px);
+  box-shadow: 0 0 0 red;
+  background-color: green;
+}

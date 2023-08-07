@@ -1,4 +1,5 @@
 import Button from './components/Button.jsx'
+import './styles/customStyles.css'
 
 const App = () => {
   const sayHi = (name) => {
@@ -29,7 +30,9 @@ const App = () => {
       <Button value='Hola' variant='outline' size='lg' color='danger' />
       <Button value='Hola' variant='default' size='md' />
       <Button value='Hola 1' variant='default' size='lg' disableShadow onClick={() => sayHi('BTN 1')} />
-      <Button value='Hola 2' variant='default' size='lg' disableShadow disabled onClick={() => sayHi('BTN 2')} />
+      <Button value='Hola 2' variant='default' size='lg' disabled onClick={() => sayHi('BTN 2')} />
+      <Button />
+      <Button value='Custom' id='MyBTN' customClass='custom__btn' />
     </div>
   )
 }

@@ -3,7 +3,6 @@ import styles from '../styles/buttons.module.css'
 import { useEffect, useState } from 'react'
 
 // * Button States
-// ToDo: disable  (true || false)
 // ToDo: icon (left || right)
 
 const VARIANTS = {
@@ -24,11 +23,11 @@ const SIZE = {
   LARGE: 'lg'
 }
 
-const Button = ({ value, variant, size, color, disableShadow, iconStart, iconEnd, disabled, onClick }) => {
+const Button = ({ type, id, customClass, value, variant, size, color, disableShadow, iconStart, iconEnd, disabled, onClick }) => {
   const [variantStyle, setVariantStyle] = useState(styles.default)
   const [shadow, setShadow] = useState(styles.disableShadow)
   const [colorStyle, setColorStyle] = useState(styles.default)
-  const [sizeStyle, setSizeStyle] = useState(styles.medium)
+  const [sizeStyle, setSizeStyle] = useState(styles.small)
 
   const getVariant = (vars) => {
     switch (vars) {
@@ -74,13 +73,12 @@ const Button = ({ value, variant, size, color, disableShadow, iconStart, iconEnd
         setSizeStyle(styles.large)
         break
       default:
-        setSizeStyle(styles.medium)
+        setSizeStyle(styles.small)
         break
     }
   }
 
   useEffect(() => {
-    console.log('entro al useEffect')
     getVariant(variant)
 
     if (!disableShadow) {
@@ -94,7 +92,9 @@ const Button = ({ value, variant, size, color, disableShadow, iconStart, iconEnd
 
   return (
     <button
-      className={`${styles.btn} ${variantStyle} ${shadow} ${colorStyle} ${sizeStyle}`}
+      type={type}
+      id={id}
+      className={`${customClass} ${styles.btn} ${variantStyle} ${shadow} ${colorStyle} ${sizeStyle}`}
       onClick={onClick}
       disabled={disabled}
     >
@@ -104,7 +104,10 @@ const Button = ({ value, variant, size, color, disableShadow, iconStart, iconEnd
 }
 
 Button.propTypes = {
-  value: PropTypes.string.isRequired,
+  type: PropTypes.string,
+  id: PropTypes.string,
+  customClass: PropTypes.string,
+  value: PropTypes.string,
   variant: PropTypes.string,
   color: PropTypes.string,
   size: PropTypes.string,
@@ -113,6 +116,13 @@ Button.propTypes = {
   iconEnd: PropTypes.string,
   disabled: PropTypes.bool,
   onClick: PropTypes.func
+}
+
+Button.defaultProps = {
+  type: 'button',
+  id: '',
+  customClass: '',
+  value: 'Button'
 }
 
 export default Button
