@@ -34,7 +34,7 @@
 }
 
 .outline {
-  background-color: #fff;
+  background: none;
   border: 1px solid var(--textColor);
   color: var(--textColor);
   box-shadow: none;
