@@ -14,7 +14,7 @@
 }
 
 .btn {
-  padding: 0 1rem;
+  padding: .5rem 1rem;
   border-radius: .4rem;
   border: none;
   font-size: .9rem;
@@ -94,20 +94,35 @@
 
 .small {
   min-width: 6rem;
+  max-width: 12rem;
   min-height: 2rem;
 }
 
 .medium {
   min-width: 7rem;
+  max-width: 14rem;
   min-height: 2.5rem;
 }
 
 .large {
   min-width: 8rem;
+  max-width: 16rem;
   min-height: 3rem;
 }
 
 .btn[disabled] {
   opacity: .6;
   cursor: not-allowed;
+}
+
+.iconStart {
+  margin-right: .6rem;
+  color: inherit;
+  font-size: inherit;
+}
+
+.iconEnd {
+  margin-left: .6rem;
+  color: inherit;
+  font-size: inherit;
 }

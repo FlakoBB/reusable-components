@@ -1,9 +1,7 @@
 import PropTypes from 'prop-types'
 import styles from '../styles/buttons.module.css'
 import { useEffect, useState } from 'react'
-
-// * Button States
-// ToDo: icon (left || right)
+import 'bootstrap-icons/font/bootstrap-icons.css'
 
 const VARIANTS = {
   DEFAULT: 'default',
@@ -98,7 +96,9 @@ const Button = ({ type, id, customClass, value, variant, size, color, disableSha
       onClick={onClick}
       disabled={disabled}
     >
+      {iconStart && <i className={`bi bi-${iconStart} ${styles.iconStart}`} />}
       {value}
+      {iconEnd && <i className={`bi bi-${iconEnd} ${styles.iconEnd}`} />}
     </button>
   )
 }
@@ -122,7 +122,9 @@ Button.defaultProps = {
   type: 'button',
   id: '',
   customClass: '',
-  value: 'Button'
+  value: 'Button',
+  iconEnd: null,
+  iconStart: ''
 }
 
 export default Button
