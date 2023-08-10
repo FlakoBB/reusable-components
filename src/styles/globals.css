@@ -38,6 +38,7 @@ body {
 }
 
 .navigator__link {
+  text-decoration: none;
   border: 1px solid #496015;
   text-align: center;
   font-size: 1.2rem;
@@ -51,13 +52,8 @@ body {
   background-color: #4960155e;
 }
 
-.navigator__link--btns {
+.active {
   background-color: #4960155e;
-}
-
-.navigator__link--inputs {
-  opacity: .5;
-  cursor: not-allowed;
 }
 
 .container {
