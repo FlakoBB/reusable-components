@@ -1,0 +1,49 @@
+:root {
+  --label: #1C313A;
+  --border: #1C313A86;
+  --main: #1c313a86;
+  --hover: #1C313A;
+  --focus: #2d9bca;
+}
+
+.label {
+  color: var(--label);
+  font-size: .8rem;
+}
+
+.fieldContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem;
+  min-width: 15rem;
+  border: 1px solid var(--border);
+  border-radius: .5rem;
+  padding: .5rem;
+}
+
+.fieldContainer i {
+  color: var(--border);
+}
+
+.fieldContainer:hover {
+  --border: var(--hover);
+}
+
+.fieldContainer :is(input, textarea) {
+  flex: 1;
+  border: none;
+  background: none;
+  resize: none;
+  outline: none;
+}
+
+.fieldContainer textarea ~ i,
+.fieldContainer i ~ textarea {
+  align-self: flex-start;
+}
+
+.helperText {
+  color: var(--label);
+  font-size: .75rem;
+}

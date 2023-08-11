@@ -13,6 +13,14 @@ body {
   background-color: #eef7da;
 }
 
+/*  ToDo: Eliminar .temporalContainer */
+.temporalContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem;
+}
+
 .mainHeader {
   display: flex;
   flex-direction: column;
