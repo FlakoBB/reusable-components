@@ -1,9 +1,53 @@
 :root {
-  --label: #1C313A;
-  --border: #96b1ab;
-  --hover: #1C313A;
-  --focus: #178572;
+  --label: #566b76;
+  --border: #96a1a5;
+  --hover: #35484F;
+  --focus: #566b76;
+  --blue1: #89C4FF;
+  --blue2: #3B82F6;
+  --blue3: #1F3A93;
+  --green1: #96FFA3;
+  --green2: #47C660;
+  --green3: #2E8442;
+  --pink1: #FF94C2;
+  --pink2: #FF4081;
+  --pink3: #C60055;
+  --purple1: #E29FFF;
+  --purple2: #B66CCF;
+  --purple3: #813E9F;
 }
+
+/* ? Colors */
+.blue {
+  --label: var(--blue2);
+  --border: var(--blue1);
+  --hover: var(--blue3);
+  --focus: var(--blue2);
+}
+
+.green {
+  --label: var(--green2);
+  --border: var(--green1);
+  --hover: var(--green3);
+  --focus: var(--green2);
+}
+
+.pink {
+  --label: var(--pink2);
+  --border: var(--pink1);
+  --hover: var(--pink3);
+  --focus: var(--pink2);
+}
+
+.purple {
+  --label: var(--purple2);
+  --border: var(--purple1);
+  --hover: var(--purple3);
+  --focus: var(--purple2);
+}
+
+
+/* ? Generals */
 
 .label {
   color: var(--label);
