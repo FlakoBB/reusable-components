@@ -1,10 +1,29 @@
 import PropTypes from 'prop-types'
 import styles from '../styles/inputs.module.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
+import { useState } from 'react'
 
 const Input = ({ id, label, placeholder, value, helperText, startIcon, endIcon, multiline, rows }) => {
+  const [isFocus, setIsFocus] = useState(false)
+  const [inputValue, setInputValue] = useState(value)
+
+  const handleFocus = () => {
+    setIsFocus(true)
+  }
+
+  const handleBlur = () => {
+    if (inputValue === '') {
+      setIsFocus(false)
+    }
+  }
+
+  const handleInputValue = (event) => {
+    const newValue = event.target.value
+    setInputValue(newValue)
+  }
+
   return (
-    <div className={styles.inputGroup}>
+    <div className={`${styles.inputGroup} ${isFocus && styles.focus}`}>
       <label htmlFor={id} className={styles.label}>{label}</label>
       <div className={styles.fieldContainer}>
         {
@@ -12,8 +31,23 @@ const Input = ({ id, label, placeholder, value, helperText, startIcon, endIcon, 
         }
         {
           !multiline
-            ? <input id={id} placeholder={placeholder} defaultValue={value} />
-            : <textarea id={id} placeholder={placeholder} defaultValue={value} rows={rows} />
+            ? <input
+                id={id}
+                placeholder={placeholder}
+                value={inputValue}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+                onChange={handleInputValue}
+              />
+            : <textarea
+                id={id}
+                placeholder={placeholder}
+                value={inputValue}
+                rows={rows}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+                onChange={handleInputValue}
+              />
         }
         {
           endIcon && !startIcon && <i className={`bi bi-${endIcon}`} />
@@ -41,6 +75,7 @@ Input.propTypes = {
 Input.defaultProps = {
   label: 'Label',
   placeholder: 'Placeholder',
+  value: '',
   rows: '4'
 }
 

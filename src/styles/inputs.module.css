@@ -1,9 +1,8 @@
 :root {
   --label: #1C313A;
-  --border: #1C313A86;
-  --main: #1c313a86;
+  --border: #96b1ab;
   --hover: #1C313A;
-  --focus: #2d9bca;
+  --focus: #178572;
 }
 
 .label {
@@ -28,6 +27,11 @@
 
 .fieldContainer:hover {
   --border: var(--hover);
+}
+
+.focus {
+  --label: var(--focus);
+  --border: var(--focus);
 }
 
 .fieldContainer :is(input, textarea) {
