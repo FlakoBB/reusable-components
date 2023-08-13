@@ -13,14 +13,6 @@ body {
   background-color: #eef7da;
 }
 
-/*  ToDo: Eliminar .temporalContainer */
-.temporalContainer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  padding: 2rem;
-}
-
 .mainHeader {
   display: flex;
   flex-direction: column;
@@ -91,7 +83,7 @@ body {
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 4rem;
+  gap: 1rem 4rem;
 }
 
 .typeTitle {

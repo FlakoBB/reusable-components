@@ -10,10 +10,19 @@ const COLORS = {
   PURPLE: 'purple'
 }
 
-const Input = ({ id, label, placeholder, value, helperText, startIcon, endIcon, color, multiline, rows }) => {
+const SIZES = {
+  SMALL: 'sm',
+  MEDIUM: 'md',
+  LARGE: 'lg',
+  FULLW: 'fullWidth'
+}
+
+const Input = ({ id, type, name, required, size, label, placeholder, value, helperText, startIcon, endIcon, color, error, multiline, rows, disabled }) => {
   const [isFocus, setIsFocus] = useState(false)
   const [inputValue, setInputValue] = useState(value)
   const [inputColor, setInputColor] = useState(color)
+  const [isError, setIsError] = useState('')
+  const [newSize, setNewSize] = useState('')
 
   const getColor = (clr) => {
     switch (clr) {
@@ -34,8 +43,33 @@ const Input = ({ id, label, placeholder, value, helperText, startIcon, endIcon, 
     }
   }
 
+  const getSize = (sz) => {
+    switch (sz) {
+      case SIZES.SMALL:
+        setNewSize(styles.sm)
+        break
+      case SIZES.MEDIUM:
+        setNewSize(styles.md)
+        break
+      case SIZES.LARGE:
+        setNewSize(styles.lg)
+        break
+      case SIZES.FULLW:
+        setNewSize(styles.fullWidth)
+        break
+      default:
+        setNewSize(styles.md)
+    }
+  }
+
   useEffect(() => {
     getColor(color)
+
+    if (error) {
+      setIsError(styles.error)
+    }
+
+    getSize(size)
   }, [])
 
   const handleFocus = () => {
@@ -54,7 +88,7 @@ const Input = ({ id, label, placeholder, value, helperText, startIcon, endIcon, 
   }
 
   return (
-    <div className={`${styles.inputGroup} ${isFocus && styles.focus} ${inputColor}`}>
+    <div className={`${styles.inputGroup} ${isFocus && styles.focus} ${inputColor} ${isError} ${newSize}`}>
       <label htmlFor={id} className={styles.label}>{label}</label>
       <div className={styles.fieldContainer}>
         {
@@ -64,20 +98,27 @@ const Input = ({ id, label, placeholder, value, helperText, startIcon, endIcon, 
           !multiline
             ? <input
                 id={id}
+                type={type}
+                name={name}
                 placeholder={placeholder}
                 value={inputValue}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
                 onChange={handleInputValue}
+                disabled={disabled}
+                required={required}
               />
             : <textarea
                 id={id}
+                name={name}
                 placeholder={placeholder}
                 value={inputValue}
                 rows={rows}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
                 onChange={handleInputValue}
+                disabled={disabled}
+                required={required}
               />
         }
         {
@@ -93,6 +134,8 @@ const Input = ({ id, label, placeholder, value, helperText, startIcon, endIcon, 
 
 Input.propTypes = {
   id: PropTypes.string,
+  type: PropTypes.string,
+  name: PropTypes.string,
   label: PropTypes.string,
   placeholder: PropTypes.string,
   value: PropTypes.string,
@@ -101,15 +144,21 @@ Input.propTypes = {
   endIcon: PropTypes.string,
   color: PropTypes.string,
   multiline: PropTypes.bool,
-  rows: PropTypes.string
+  rows: PropTypes.string,
+  disabled: PropTypes.bool,
+  required: PropTypes.bool
 }
 
 Input.defaultProps = {
   label: 'Label',
+  type: 'text',
+  name: '',
   placeholder: 'Placeholder',
   value: '',
   color: '',
-  rows: '4'
+  rows: '4',
+  disabled: false,
+  required: false
 }
 
 export default Input

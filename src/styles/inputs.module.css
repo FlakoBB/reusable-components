@@ -1,6 +1,7 @@
 :root {
   --label: #566b76;
   --border: #96a1a5;
+  --disabled: #96a1a5;
   --hover: #35484F;
   --focus: #566b76;
   --blue1: #89C4FF;
@@ -15,6 +16,9 @@
   --purple1: #E29FFF;
   --purple2: #B66CCF;
   --purple3: #813E9F;
+  --error1: #FF6666;
+  --error2: #FF0000;
+  --error3: #990000;
 }
 
 /* ? Colors */
@@ -46,12 +50,40 @@
   --focus: var(--purple2);
 }
 
+.error {
+  --label: var(--error2);
+  --border: var(--error1);
+  --hover: var(--error3);
+  --focus: var(--error2);
+}
+
+/* ? Sizes */
+.sm {
+  --width: 12rem;
+  --padding: .3rem;
+}
+
+.md {
+  --width: 15rem;
+  --padding: .5rem;
+}
+
+.lg {
+  --width: 20rem;
+  --padding: 1rem .6rem;
+}
+
+.fullWidth {
+  --width: 100%;
+  --padding: 1rem .5rem;
+}
 
 /* ? Generals */
 
 .label {
   color: var(--label);
   font-size: .8rem;
+  font-weight: 500;
 }
 
 .fieldContainer {
@@ -59,10 +91,10 @@
   align-items: center;
   justify-content: space-between;
   gap: .5rem;
-  min-width: 15rem;
+  width: var(--width);
   border: 1px solid var(--border);
   border-radius: .5rem;
-  padding: .5rem;
+  padding: var(--padding);
 }
 
 .fieldContainer i {
@@ -86,12 +118,26 @@
   outline: none;
 }
 
-.fieldContainer textarea ~ i,
-.fieldContainer i ~ textarea {
+.fieldContainer:has(textarea) i  {
   align-self: flex-start;
 }
 
 .helperText {
   color: var(--label);
   font-size: .75rem;
+}
+
+/* ? Disabled */
+.fieldContainer:has(:is(input, textarea)[disabled]) {
+  background-color: var(--border);
+  border-color: var(--focus);
+  cursor: not-allowed;
+}
+
+.fieldContainer:has(:is(input, textarea)[disabled]) :is(input, textarea) {
+  cursor: not-allowed;
+}
+
+.fieldContainer:has(:is(input, textarea)[disabled]) i {
+  color: var(--focus);
 }
