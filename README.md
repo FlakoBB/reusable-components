@@ -37,6 +37,9 @@
 ### Button Component
 ![screenshot](./public/screenshot1.png)
 
+### Input Component
+![screenshot](./public/screenshot2.png)
+
 Page that shows a reusable component made with **React**. This component is a button with differents states that change his style.
 
 The demo it is deployed on **Vercel**
@@ -53,6 +56,8 @@ The demo it is deployed on **Vercel**
 This application/site was created as a submission to a [DevChallenges](https://devchallenges.io/challenges) challenge. The [challenge](https://devchallenges.io/challenges/ohgVTyJCbm5OZyTB2gNY) was to build an application to complete the given user stories.
 
 ## How To Use
+
+### Button
 
 This React component require some props to render.
 
@@ -107,6 +112,80 @@ Also we have access to the button attributes like type (default is 'button'), id
 <Button disabled />
 <Button onClick={() => {}} />
 ```
+
+---
+
+### Input
+
+As with the button, we will access the characteristics of the Input through props.
+
+When you render the component without props obtains a default **input**.
+```jsx
+<Input />
+```
+
+To define a label and placeholder we use the **label** and **placeholder** props.
+```jsx
+<Input label='Username' placeholder='@username_30' />
+```
+
+We can put a help text at the bottom using the **helperText** prop.
+```jsx
+<Input helperText='Min 6 characters' />
+```
+
+Also we can define a initial value with the **value** prop.
+```jsx
+<Input value='Hello World' />
+```
+
+We have the possibility of placing an icon to the right or to the left of the input using the **startIcon** and **endIcon** props that receive a string that corresponds to the name of some _Bootstrap_ icon.
+```jsx
+<Input startIcon='person-fill' />
+<Input endIcon='person-fill' />
+```
+
+We can choose between 3 specific sizes or put the width at 100% with the **size** prop.
+```jsx
+<Input size='sm' />
+<Input size='md' />
+<Input size='lg' />
+<Input size='fullWidth' />
+```
+
+Also can choose between four colors (blue, green, pink and purple) with the **color** prop.
+```jsx
+<Input color='blue' />
+<Input color='green' />
+<Input color='pink' />
+<Input color='purple' />
+```
+
+We can indicate that the input is multiline using the **multiline** prop and specifying the number of visible lines with the **rows** prop.
+```jsx
+<Input multiline /> // default: rows='4'
+<Input multiline rows='10' />
+```
+
+We have the **error** prop that provides the input with a group of different styles useful to validate the field in a form.
+```jsx
+<Input error />
+```
+
+in the same way we have the possibility of deactivating some field using the **disabled** prop.
+```jsx
+<Input disabled />
+```
+
+Finally, we also have access to different attributes of an input.
+```jsx
+<Input id='user' />
+<Input type='password' />
+<Input name='description' />
+<Input required />
+```
+
+---
 
 ## Contact
 
