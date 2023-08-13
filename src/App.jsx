@@ -1,5 +1,6 @@
 import ButtonsSection from './components/ButtonsSection.jsx'
 import InputsSection from './components/InputsSection.jsx'
+import DemoPage from './components/DemoPage.jsx'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 
 const App = () => {
@@ -14,7 +15,7 @@ const App = () => {
           </nav>
         </header>
         <Routes>
-          <Route path='/' element={<p>Raiz</p>} />
+          <Route path='/' element={<DemoPage />} />
           <Route path='/buttons' element={<ButtonsSection />} />
           <Route path='/inputs' element={<InputsSection />} />
           <Route path='/*' element={<h2>Error 404 ¯\_(ツ)_/¯</h2>} />
